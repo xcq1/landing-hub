@@ -3,9 +3,10 @@ import Blackboard from "./components/Blackboard";
 
 class App extends Component {
     render() {
-        return <Blackboard />;
+        const docks = [{ name: "a", link: "a", image: "a" }];
+        const floats = [{ name: "a", link: "a", image: "a", x: 0, y: 0 }];
+        return <Blackboard docks={docks} floats={floats} />;
     }
 }
 
 export default App;
- 

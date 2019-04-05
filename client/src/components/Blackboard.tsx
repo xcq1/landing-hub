@@ -6,7 +6,23 @@ import { withResizeDetector } from "react-resize-detector";
 import Dock from "react-osx-dock";
 import "./Blackboard.css";
 
+interface Item {
+    name: string;
+    image: string;
+    link: string;
+}
+
+interface PositionedItem extends Item {
+    x: number;
+    y: number;
+}
+
 interface Props {
+    docks: Item[];
+    floats: PositionedItem[];
+}
+
+interface PropsWithResize extends Props {
     width: number;
     height: number;
 }
@@ -15,8 +31,8 @@ interface State {
     descriptor: string;
 }
 
-class Blackboard extends Component<Props, State> {
-    constructor(props: Props) {
+class Blackboard extends Component<PropsWithResize, State> {
+    constructor(props: PropsWithResize) {
         super(props);
         this.state = { descriptor: "" };
     }
@@ -44,17 +60,19 @@ class Blackboard extends Component<Props, State> {
     renderDesktop() {
         return (
             <div className="blackboard">
-                <Dock width={400} magnification={1} magnifyDirection="down" className="dock" backgroundClassName="dock-background">
-                    {["a", "b", "c", "d", "e"].map((item, index) => (
+                <Dock width={this.props.docks.length * 80} magnification={1} magnifyDirection="down" className="dock" backgroundClassName="dock-background">
+                    {this.props.docks.map((item, index) => (
                         <Dock.Item key={index} className="dock-item">
-                            <a href="https://example.com" onMouseEnter={this.updateDescriptor(item)} onMouseLeave={this.resetDescriptor}>
-                                <img src={`${item}.png`} />
+                            <a href={item.link} onMouseEnter={this.updateDescriptor(item.name)} onMouseLeave={this.resetDescriptor}>
+                                <img src={item.image} />
                             </a>
                         </Dock.Item>
                     ))}
                 </Dock>
                 <Explainer text={this.state.descriptor} />
-                <Button id="service" link="https://example.com" image="service.png" left={32} top={74} onMouseEnter={this.updateDescriptor("Service")} onMouseLeave={this.resetDescriptor} />
+                {this.props.floats.map((item, index) => (
+                    <Button link={item.link} image={item.image} left={item.x} top={item.y} onMouseEnter={this.updateDescriptor(item.name)} onMouseLeave={this.resetDescriptor} />
+                ))}
             </div>
         );
     }
@@ -64,4 +82,4 @@ class Blackboard extends Component<Props, State> {
     }
 }
 
-export default (withResizeDetector(Blackboard) as any) as React.ComponentClass;
+export default (withResizeDetector(Blackboard) as any) as React.ComponentClass<Props>;
