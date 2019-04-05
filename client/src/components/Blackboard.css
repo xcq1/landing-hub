@@ -1,0 +1,31 @@
+html,
+body,
+div#root,
+div.blackboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div.blackboard {
+    background: url("../images/background.jpg") no-repeat fixed;
+    background-size: cover;
+}
+
+div.dock {
+    /* interaction area */
+    height: 80px;
+}
+
+div.dock-background {
+    background-color: #ccc;
+    opacity: 0.6;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 1px 1px 50px 4px rgba(0, 0, 0, 0.8);
+}
+
+div.dock div.dock-item a,
+div.dock div.dock-item a img {
+    height: calc(100% - 4px - 2px);
+}

@@ -1,11 +1,11 @@
 img.button {
-	position: fixed;
-	transition: 600ms ease;
-	height: 20vh;
-	filter: grayscale(50%);
+    position: fixed;
+    transition: 600ms ease;
+    height: 20vh;
+    filter: grayscale(50%);
 }
 
 img.button:hover {
-	transform: scale(1.4);
-	filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
+    transform: scale(1.4);
+    filter: drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white);
 }

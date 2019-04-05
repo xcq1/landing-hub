@@ -1009,6 +1009,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-resize-detector@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-resize-detector/-/react-resize-detector-4.0.1.tgz#cc8f012f5957e4826e69b8d2afd59baadcac556c"
+  integrity sha512-i115c58mAIXGS4CnDmKv5N5KNbPcABhph7SSfpsfBEjx9KJ0JcYKDeNc73H200Eo7vVSFnAIIDs7EmVWeoZiaw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@16.8.12":
   version "16.8.12"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.12.tgz#ffbdd7bcd2b7037c3f78e26c708922a2befbb71f"
@@ -7996,6 +8003,11 @@ react-is@^16.8.1:
   version "16.8.4"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
+
+react-osx-dock@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-osx-dock/-/react-osx-dock-1.0.0.tgz#8e2de4e5606d492e568f7f790bbf7b0e06ee7229"
+  integrity sha1-ji3k5WBtSS5Wj395C797Dgbucik=
 
 react-resize-detector@^4.0.5:
   version "4.0.5"

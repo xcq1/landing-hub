@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import "./Button.css";
 
 interface Props {
@@ -7,13 +7,15 @@ interface Props {
     image: string;
     left: number;
     top: number;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
-class Button extends React.PureComponent<Props> {
+class Button extends PureComponent<Props> {
     render() {
         const style = { left: this.props.left + "vw", top: this.props.top + "vh" };
         return (
-            <a href={this.props.link}>
+            <a href={this.props.link} onMouseEnter={this.props.onMouseEnter} onMouseLeave={this.props.onMouseLeave}>
                 <img className="button" id={this.props.id} src={this.props.image} style={style} />
             </a>
         );
