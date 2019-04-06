@@ -71,7 +71,7 @@ class Blackboard extends Component<PropsWithResize, State> {
                 </Dock>
                 <Explainer text={this.state.descriptor} />
                 {this.props.floats.map((item, index) => (
-                    <Button link={item.link} image={item.image} left={item.x} top={item.y} onMouseEnter={this.updateDescriptor(item.name)} onMouseLeave={this.resetDescriptor} />
+                    <Button key={index} link={item.link} image={item.image} left={item.x} top={item.y} onMouseEnter={this.updateDescriptor(item.name)} onMouseLeave={this.resetDescriptor} />
                 ))}
             </div>
         );
