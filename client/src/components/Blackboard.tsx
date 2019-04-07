@@ -20,6 +20,7 @@ interface PositionedItem extends Item {
 interface Props {
     docks: Item[];
     floats: PositionedItem[];
+    forceMobile?: boolean;
 }
 
 interface PropsWithResize extends Props {
@@ -38,10 +39,10 @@ class Blackboard extends Component<PropsWithResize, State> {
     }
 
     render() {
-        if (this.props.width > this.props.height) {
-            return this.renderDesktop();
-        } else {
+        if (this.props.forceMobile || 3 * this.props.width < 4 * this.props.height) {
             return this.renderMobile();
+        } else {
+            return this.renderDesktop();
         }
     }
 
