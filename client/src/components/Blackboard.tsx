@@ -79,7 +79,34 @@ class Blackboard extends Component<PropsWithResize, State> {
     }
 
     renderMobile() {
-        return <div className="blackboard-mobile" />;
+        return (
+            <div className="blackboard-mobile">
+                <header />
+                <h3>Important Stuff</h3>
+                <div className="list">
+                    {this.props.docks.map((item, index) => (
+                        <a href={item.link}>
+                            <div className="float link" key={index}>
+                                {item.name}
+                            </div>
+                        </a>
+                    ))}
+                </div>
+                <div className="grid">
+                    {this.props.floats.map((item, index) => (
+                        <div className="grid-item" key={index}>
+                            <h3>{item.name}</h3>
+                            <img src={item.image} />
+                            <div className="link-center">
+                                <a href={item.link}>
+                                    <div className="link">{item.link.replace("https://", "").replace(/\/$/, "")}</div>
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
     }
 }
 
